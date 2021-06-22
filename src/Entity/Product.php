@@ -38,13 +38,13 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageUrl;
 
     /**
      * @ORM\ManyToOne(targetEntity=Order::class, inversedBy="products")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $commande;
 

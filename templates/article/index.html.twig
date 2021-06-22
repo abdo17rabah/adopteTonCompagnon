@@ -3,21 +3,15 @@
 {% block title %}Hello ArticleController!{% endblock %}
 
 {% block body %}
-    <div class="container py-5">
-        <h2 class="mb-3">Nos Articles</h2>
-        <div class="row">
-            {% for article in articles %}
-                <div class="col-md-12 py-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ article.title }}</h5>
-                            <p class="card-text">{{ article.content }}</p>
-                            <span class="badge badge-info">{{ article.date |date('Y-m-d') }}</span>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
+    <ul class="articles">
+        {# Sort article by the latest date #}
+        {% for article in articles |sort((a, b) => b.date <=> a.date) %}
+        <li class="articleItem">
+            <img src="/post.png" alt="article icon">
+            <h4>{{ article.title }}</h4>
+            <p>{{ article.content }}</p>
+            <span class="badge">{{ article.date | date('Y-m-d') }}</span>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

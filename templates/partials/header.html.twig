@@ -1,0 +1,20 @@
+<nav>
+    <h1><a href="/">ATC</a></h1>
+    <ul>
+        {#{% if(user) %}
+            <li>Welcome, <%= user.email %></li>
+            <li><a href="/logout">Log out</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/donations">Donations</a></li>
+            <li><a href="/makeDonation">Make donation</a>
+            </li><li><a href="/products">Products</a></li>
+        {% else %}
+            <li><a href="/login">Log in</a></li>
+            <li><a href="/signup">Sign up</a></li>
+            <li><a href="/articles">Articles</a></li>
+        {% endif %}#}
+        <li><a href="/login">Log in</a></li>
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/articles">Articles</a></li>
+    </ul>
+</nav>
