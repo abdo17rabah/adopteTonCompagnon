@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}Our products!{% endblock %}
 
 {% block body %}
     <ul class="articles">
         {# Sort article by the latest date #}
-        {% for product in products |sort((a, b) => b.price <=> a.price) %}
+        {% for product in products | sort((a, b) => b.price <=> a.price) %}
             <li class="articleItem">
                 {% if product.type == 'food' %}
                     <img src="/puppy.png" alt="article icon">

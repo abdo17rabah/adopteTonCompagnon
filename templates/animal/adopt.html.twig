@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link href="css/styles.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Adopt an animal!{% endblock %}
+
+{% block body %}
+    <ul>
+        <li class="articleItem">
+            {% if animal.race == 'dog' %}
+                <img src="/corgi.png" alt="article icon">
+            {% elseif animal.race == 'cat' %}
+                <img src="/cat-face.png" alt="article icon">
+            {% else %}
+                <img src="/macaw.png" alt="article icon">
+            {% endif %}
+            <h4>Congratulations {{ user.username }} !</h4>
+            <p>{{ animal.name }} is your new Compagnon </p>
+            <button class="button"><a href="/animals">Go back</a></button>
+            <button class="button"><a href="/adoptions">See adoptions</a></button>
+        </li>
+    </ul>
+{% endblock %}

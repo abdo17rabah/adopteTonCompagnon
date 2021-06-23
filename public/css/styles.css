@@ -186,3 +186,8 @@ footer div a {
     letter-spacing: 2px;
     margin: 30px auto 0;
 }
+
+.link {
+    text-decoration: none;
+    color: #444;
+}

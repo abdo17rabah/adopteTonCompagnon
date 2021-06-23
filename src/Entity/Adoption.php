@@ -23,15 +23,15 @@ class Adoption
     private $date;
 
     /**
+     * @ORM\OneToOne(targetEntity=Animal::class, inversedBy="adoption", cascade={"persist", "remove"})
+     */
+    private $animal;
+
+    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="adoptions")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Animal::class, inversedBy="adoption", cascade={"persist", "remove"})
-     */
-    private $animal;
 
     public function getId(): ?int
     {
@@ -50,18 +50,6 @@ class Adoption
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getAnimal(): ?Animal
     {
         return $this->animal;
@@ -70,6 +58,18 @@ class Adoption
     public function setAnimal(?Animal $animal): self
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

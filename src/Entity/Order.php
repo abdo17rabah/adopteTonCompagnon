@@ -31,15 +31,15 @@ class Order
     private $date;
 
     /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="commande", orphanRemoval=true)
+     */
+    private $products;
+
+    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="commande", orphanRemoval=true)
-     */
-    private $products;
 
     public function __construct()
     {
@@ -75,18 +75,6 @@ class Order
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Product[]
      */
@@ -113,6 +101,18 @@ class Order
                 $product->setCommande(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
