@@ -2,6 +2,7 @@
 {#{% block title %}Adopt an animal!{% endblock %}#}
 
 {% block body %}
+    <div class="cardContainer">
         <ul>
             <li class="articleItem">
                 {% if animal.race == 'dog' %}
@@ -13,8 +14,9 @@
                 {% endif %}
                 <h4>Congratulations {{ user.username }} !</h4>
                 <p>{{ animal.name }} is your new Compagnon </p>
-                <button class="button"><a href="/animals">Go back</a></button>
-                <button class="button"><a href="/adoptions">See adoptions</a></button>
+                <button class="button"><a href="/animals" class="link">Go back</a></button>
+                <button class="button"><a href="/adoptions" class="link">See adoptions</a></button>
             </li>
         </ul>
+    </div>
 {% endblock %}

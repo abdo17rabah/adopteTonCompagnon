@@ -9,6 +9,12 @@
             </li><li><a href="/products">Products</a></li>
             <li><a href="/articles">Articles</a></li>
             <li>Welcome, {{ app.user.username }}</li>
+            <li><a class="navbar-brand" href="/order">
+                    <div class="logo-image">
+                        <img src="/shopping-cart.png" class="img-fluid">
+                    </div>
+                </a>
+            </li>
             <li><a href="/logout">Log out</a></li>
         {% else %}
             <li><a href="/animals">Adopt</a></li>

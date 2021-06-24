@@ -14,7 +14,7 @@
                     <img src="/macaw.png" alt="article icon">
                 {% endif %}
                 <h4>{{ adoption.animal.name }}</h4>
-                <p>Adopted by : {{ adoption.user.email }}</p>
+                <p>Adopted by : {{ adoption.user.username }}</p>
                 <span class="badge">{{ adoption.animal.age }} Years old | {{ adoption.animal.weight}} KG</span>
                 <span class="badge">{{ adoption.date | date('Y-m-d') }}</span>
             </li>
