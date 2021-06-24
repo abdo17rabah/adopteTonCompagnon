@@ -3,18 +3,16 @@
 {% block title %}Hello DonationController!{% endblock %}
 
 {% block body %}
-<div class="container py-5">
-    <div class="col-md-auto">
-        <h2 class="mb-3">Historique des donations</h2>
-        <div class="row">
+    <div class="donations">
+        <div class="box">
+            <h2>Donations</h2>
             <ul>
-                {% for donation in donations %}
-                    <li>{{ donation.sum }} € </li>
-                    <li>{{ donation.user.username }}</li>
+                {% for donation in donations | sort((a, b) => b.sum <=> a.sum) %}
+                    <li>{{ donation.sum }} € |  {{ donation.user.username }} | {{ donation.date | date('Y-m-d') }}</li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 
-</div>
+
 {% endblock %}
