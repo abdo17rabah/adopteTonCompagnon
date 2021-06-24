@@ -7,6 +7,7 @@ What we have used in this project :
 - Services
 - Sessions
 - Databases and the Doctrine ORM
+...
 
 Requirements
 ------------
