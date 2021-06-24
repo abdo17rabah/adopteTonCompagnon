@@ -1,20 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OrderController!{% endblock %}
+{% block title %}
+    Votre panier
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="bg-light p-3">
+                    <h1>Your order</h1>
+                </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                {% if items | length > 0 %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td>{{ item.product.id }}</td>
+                                <td>{{ item.product.Name }}</td>
+                                <td>{{ item.product.price }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.product.price * item.quantity }} €</td>
+                                <td>
+                                    <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="4" class="text-right">
+                                Total :
+                            </th>
+                            <th>{{ total }} €</th>
+                            <th></th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                {% else %}
+                    <p>Surprise, Your Cart is empty !</p>
+                {% endif %}
+            </div>
+                {% if items | length > 0 %}
+                    <div class="btn btn-info">
+                        <a href="{{ path('buy') }}">Buy</a>
+                    </div>
+                {% endif %}
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/abdo17r/Desktop/IPSSI/symfony/adpoteUnCompagnon/src/Controller/OrderController.php'|file_link(0) }}">src/Controller/OrderController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/abdo17r/Desktop/IPSSI/symfony/adpoteUnCompagnon/templates/order/index.html.twig'|file_link(0) }}">templates/order/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}

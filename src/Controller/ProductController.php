@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class ProductController extends AbstractController
 {
     /**
@@ -16,8 +17,8 @@ class ProductController extends AbstractController
     {
       $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('product/index.html.twig', [
-          'controller_name' => 'ProductController',
           'products' => $products
         ]);
     }
+
 }
