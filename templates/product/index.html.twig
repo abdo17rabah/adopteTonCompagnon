@@ -15,7 +15,9 @@
                 <h4>{{ product.name }}</h4>
                 <p>{{ product.description }}</p>
                 <span class="badge">{{ product.price }} €</span>
-                <button class="button">Buy</button>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <button class="button">Buy</button>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

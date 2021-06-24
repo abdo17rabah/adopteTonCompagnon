@@ -4,22 +4,13 @@
 
 {% block body %}
 <div class="container py-5">
-    <div class="col-md-6">
-        <h2 class="mb-3">Donations</h2>
-        <div class="row">
-            {{form_start(form)}}
-                {{form_row(form.sum)}}
-            {{form_end(form)}}
-        </div>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-auto">
         <h2 class="mb-3">Historique des donations</h2>
         <div class="row">
             <ul>
                 {% for donation in donations %}
-
-                    <li>{{ donation.sum }}</li>
-                    <li>{{ donation.user }}</li>
+                    <li>{{ donation.sum }} € </li>
+                    <li>{{ donation.user.username }}</li>
                 {% endfor %}
             </ul>
         </div>

@@ -19,7 +19,7 @@ class AnimalFixtures extends Fixture
         $animal->setName($this->faker->name);
         $animal->setRace($this->races[array_rand($this->races, 1)]);
         $animal->setWeight($this->faker->numberBetween(5,15));
-        $animal->setAge($this->faker->numberBetween(5,15));
+        $animal->setAge($this->faker->numberBetween(0,15));
         $animal->setDescription($this->faker->text(150));
         $animal->setAdoptedStatus(false);
         $manager->persist($animal);

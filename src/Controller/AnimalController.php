@@ -35,7 +35,7 @@ class AnimalController extends AbstractController
   }
 
   /**
-   * @Route("/animal/{id}", name="adopt")
+   * @Route("/adopt/{id}", name="adopt")
    */
   public function adopt($id): Response
   {
