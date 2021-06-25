@@ -76,7 +76,9 @@ class OrderController extends AbstractController
 
         $cartService->clearCart();
 
-        return $this->redirectToRoute("products");
+        return $this->render('order/confirm.html.twig', [
+            "user"=>$user
+        ]);
 
     }
 
