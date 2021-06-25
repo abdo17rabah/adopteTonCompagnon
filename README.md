@@ -31,6 +31,14 @@ Alternatively, you can use Composer:
 $ composer create-project symfony/symfony-demo adopteTonCompagnon
 ```
 
+Fixtures
+------------
+Run this command in order to generate fake data for de DB(tables: article, product, animal)
+
+```bash
+$ php bin/console doctrine:fixtures:load
+```
+
 Usage
 -----
 
